@@ -8,10 +8,14 @@ function RetornarContagemCaracteres(palavra) {
     var semEspaco = palavraMinuscula.replace(" ", "");
     var indexPalavra = semEspaco.split("");
     var contagem = 0;
+    var arraySup = [];
     for (var index = 0; index < indexPalavra.length; index++) {
         for (var index2 = 0; index2 < indexPalavra.length; index2++) {
-            if (indexPalavra[index] == indexPalavra[index2]) {
-                contagem++;
+            if (indexPalavra[index] == indexPalavra[index2] && index != index2) {
+                if (arraySup.includes(indexPalavra[index]) == false) {
+                    arraySup.push(indexPalavra[index]);
+                    contagem++;
+                }
             }
         }
     }

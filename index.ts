@@ -10,12 +10,15 @@ function RetornarContagemCaracteres(palavra: string): number {
     let semEspaco = palavraMinuscula.replace(" ", "")
     let indexPalavra = semEspaco.split("")
     let contagem = 0
-
-
+    let arraySup: string[] = []
+    
     for (let index = 0; index < indexPalavra.length; index++) {
-        for (let index2 = 0; index2 < indexPalavra.length; index2++) {
-            if (indexPalavra[index] == indexPalavra[index2]) {
-                contagem++
+        for (let index2 = 0; index2 < indexPalavra.length; index2++) { 
+            if (indexPalavra[index] == indexPalavra[index2] && index != index2) {
+                if (arraySup.includes(indexPalavra[index]) == false) {
+                    arraySup.push(indexPalavra[index])
+                    contagem++
+                }
             }
         }
     }
